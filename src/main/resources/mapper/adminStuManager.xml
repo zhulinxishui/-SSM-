@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stu.admin.dao.StuManagerDao">
+	<select id="getCountStu" parameterType="string" resultType="int">
+		select count(*) from student
+		where name like concat(concat('%',#{param1}),'%') or
+			  idcard like concat(concat('%',#{param1}),'%') or
+			  sex like concat(concat('%',#{param1}),'%') or
+			  phone like concat(concat('%',#{param1}),'%') or
+			  qq like concat(concat('%',#{param1}),'%') or
+			  email like concat(concat('%',#{param1}),'%') or
+			  address like concat(concat('%',#{param1}),'%')
+	</select>
+	<select id="getAllStu"  resultType="java.util.Map">
+		select * from student
+		where name like concat(concat('%',#{param1}),'%') or
+			  idcard like concat(concat('%',#{param1}),'%') or
+			  sex like concat(concat('%',#{param1}),'%') or
+			  phone like concat(concat('%',#{param1}),'%') or
+			  qq like concat(concat('%',#{param1}),'%') or
+			  email like concat(concat('%',#{param1}),'%') or
+			  address like concat(concat('%',#{param1}),'%')
+		order by id desc
+		limit #{param2} ,#{param3}
+	</select>
+	<insert id="addStudent" parameterType="string">
+		INSERT into student(name,idcard,sex) values(#{param1},#{param2},#{param3})
+	</insert>
+    <delete id="delStudent" parameterType="int">
+        DELETE FROM student WHERE id=#{param1}
+    </delete>
+    <delete id="delMoreStudent" parameterType="list">
+        DELETE from student where id in
+        <foreach collection="list" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <select id="getStudent" parameterType="int" resultType="map">
+        select * from student where id=#{param1}
+    </select>
+    <update id="updateStudent" parameterType="string">
+        update student set name=#{param1},idcard=#{param2},sex=#{param3},phone=#{param4},qq=#{param5},email=#{param6},address=#{param7}
+        where id=#{param8}
+    </update>
+    <delete id="delStudentInCourse" parameterType="int">
+        DELETE from stu_course where student_id=#{param1}
+    </delete>
+    <select id="getSwitch" parameterType="String" resultType="int">
+        select state from switch where name=#{param1}
+    </select>
+    <update id="setSwitch" parameterType="string">
+        UPDATE switch set state=#{param2} where name=#{param1}
+    </update>
+    <select id="getstudentCombox" resultType="map">
+        select student.id,student.name from student
+    </select>
+    <select id="getStudentReward" parameterType="int" resultType="map">
+        select * from reward where student_id=#{param1}
+    </select>
+    <select id="getStudentPunish" parameterType="int" resultType="map">
+        select * from punish where student_id=#{param1}
+    </select>
+    <insert id="addreward" parameterType="string" >
+        INSERT into reward(student_id,content,time) VALUES(#{param1},#{param2},#{param3})
+    </insert>
+    <select id="getRewardCombobox" parameterType="int" resultType="map">
+        select id,content from reward where student_id=#{param1}
+    </select>
+    <delete id="delReword" parameterType="int">
+        DELETE from reward where id=#{param1}
+    </delete>
+    <insert id="addPunish" parameterType="string">
+        insert into punish (student_id,content,time) values (#{param1},#{param2},#{param3});
+    </insert>
+    <select id="getPunishCombobox" parameterType="string" resultType="map">
+        select id,content from punish where student_id=#{param1}
+    </select>
+    <delete id="delPunish" parameterType="string">
+        DELETE from punish where id=#{param1}
+    </delete>
+    <select id="getStuAllQualityWithKey" parameterType="string" resultType="int">
+        select count(*) from quality where student_id=#{param1} and name like concat('%',#{param2},'%')
+    </select>
+    <select id="getStuAllQuality" parameterType="int" resultType="int">
+        select count(*) from quality where student_id=#{param1}
+    </select>
+    <select id="getQualityData" parameterType="int" resultType="map">
+        select quality.id as id,quality.name as qualityName,quality.score as score,quality.time as qualityTime
+        from quality
+        where student_id=#{param1}
+        and name like concat('%',#{param4},'%')
+        limit #{param2},#{param3}
+    </select>
+    <select id="getCountQuality" parameterType="int" resultType="float">
+        select sum(score) from quality where student_id=#{param1}
+    </select>
+    <delete id="delQuality" parameterType="int">
+        DELETE from quality where id=#{param1}
+    </delete>
+    <insert id="addQuality" parameterType="string">
+        INSERT into quality(student_id,name,score,time) VALUES(#{param1},#{param2},#{param3},#{param4})
+    </insert>
+    <select id="checkStuDuplicate" parameterType="String" resultType="int">
+        SELECT count(*)
+        FROM student
+        WHERE student.name=#{param1} and student.idcard=#{param2}
+    </select>
+</mapper>

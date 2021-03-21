@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stu.user.dao.DormitoryDao">
+
+    <select id="getStuDormitoryInfo" parameterType="int" resultType="map">
+        select student.`name`,dormi_zone.id as zone_id,dormi_zone.zone_name,stu_dormitory.building,stu_dormitory.room
+        from dormi_zone join stu_dormitory on stu_dormitory.zone_id=dormi_zone.id join student on stu_dormitory.stu_id=student.id
+        where student.id=#{param1}
+    </select>
+
+
+    <select id="getdormZoneCombox" resultType="map">
+        select dormi_zone.id,dormi_zone.zone_name from dormi_zone
+    </select>
+
+    <update id="updateStuDormitoryInfo" parameterType="String">
+        update stu_dormitory
+        set zone_id=#{param2},building=#{param2},room=#{param3}
+        where stu_id=#{param1}
+    </update>
+
+    <insert id="addStuDormitoryInfo" parameterType="String">
+        insert into stu_dormitory (stu_id,zone_id,building,room)
+        VALUES (#{param1},#{param2},#{param2},#{param3})
+    </insert>
+
+    <delete id="delStuDormitoryInfo" parameterType="String">
+        DELETE FROM stu_dormitory
+        where stu_id=#{param1}
+    </delete>
+
+    <select id="getTotalStuDormitory" parameterType="string" resultType="int">
+          select count(*)
+          from dormi_zone join stu_dormitory on stu_dormitory.zone_id=dormi_zone.id join student on stu_dormitory.stu_id=student.id
+          where student.`name` like concat('%',#{param1},'%')
+          or dormi_zone.`zone_name` like concat('%',#{param1},'%')
+    </select>
+
+    <select id="getAllStuDormitory" parameterType="String" resultType="map">
+        select student.`name` as student_name,student.id as student_id,dormi_zone.id as zone_id,dormi_zone.zone_name,stu_dormitory.building,stu_dormitory.room
+        from dormi_zone join stu_dormitory on stu_dormitory.zone_id=dormi_zone.id join student on stu_dormitory.stu_id=student.id
+        where student.`name` like concat('%',#{param1},'%')
+        or dormi_zone.`zone_name` like concat('%',#{param1},'%')
+    </select>
+
+    <insert id="addDormiZone" parameterType="String">
+        insert into dormi_zone (zone_name)
+        VALUES (#{param1})
+    </insert>
+
+    <delete id="delDormiZone" parameterType="String">
+        DELETE FROM dormi_zone
+        WHERE id=#{param1}
+    </delete>
+
+</mapper>

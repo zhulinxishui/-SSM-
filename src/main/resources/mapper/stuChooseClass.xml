@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stu.user.dao.StudentDao">
+    <select id="getStuMsg" parameterType="int" resultType="map">
+        select * from student where id=#{param1}
+    </select>
+    <select id="getSwitch" resultType="int">
+        select state from switch where name='studentSwitch'
+    </select>
+    <update id="updateMsg" parameterType="string">
+        UPDATE student SET idcard=#{param2},sex=#{param3},phone=#{param3},qq=#{param4},email=#{param5},address=#{param6}
+        where id=#{param1}
+    </update>
+    <select id="getUserName" parameterType="String" resultType="int">
+        select count(*) from user where username=#{param1}
+    </select>
+    <insert id="createUser" parameterType="string">
+        INSERT into user (username,password,stuId) values(#{param1},#{param2},#{param3})
+    </insert>
+    <update id="updateStudnetFlag" parameterType="String">
+        UPDATE student set reset='param2' where id=#{param1}
+    </update>
+</mapper>

@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/stumanager?serverTimezone=GMT&allowMultiQueries=true&useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=true&verifyServerCertificate=false
+    username: root
+    password: 123456
+
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+    static-path-pattern: /*
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.stu
+

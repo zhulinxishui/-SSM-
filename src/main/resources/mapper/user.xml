@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stu.user.dao.UserDao">
+
+    <select id="adminLogin" parameterType="String" resultType="Map">
+        select * from admin where username=#{param1} and password=#{param2}
+    </select>
+
+    <select id="stuLogin" parameterType="String" resultType="map">
+        select * from student where name=#{username}
+    </select>
+
+    <select id="studentLogin" parameterType="String" resultType="int">
+        SELECT count(*) from user where username=#{username} and password=#{password}
+    </select>
+    <select id="studentLogin1" parameterType="string" resultType="map">
+        select * from user where username=#{username} and password=#{password}
+    </select>
+
+    <select id="getUsername" parameterType="int" resultType="string">
+        select name from student where id=#{stuId}
+    </select>
+
+    <select id="getAdminName" parameterType="String" resultType="String">
+        select name from admin where username=#{username}
+    </select>
+
+    <update id="updateAdminPassword" parameterType="String">
+        update admin
+        set password=#{newPassword}
+        where id=#{adminId}
+    </update>
+<!--    王鑫蕊-->
+<!--    <insert id="UserSignUp" >-->
+<!--        insert into user (username, password, stuId) values (#{0},#{1},#{2})-->
+<!--    </insert>-->
+    <insert id="UserSignUp">
+       insert into user (username, password, stuId) values (#{username},#{password},#{stuId})
+    </insert>
+
+    <insert id="stuSignUp" parameterType="Integer">
+       insert into student (id) values (#{id})
+    </insert>
+
+</mapper>
