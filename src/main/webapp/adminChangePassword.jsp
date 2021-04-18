@@ -20,7 +20,7 @@
     <link href="plugin/easyui/themes/bootstrap/easyui.css" rel="stylesheet">
     <link href="css/mycss.css" rel="stylesheet">
 </head>
-<body>
+<body style="background-image: url(/image/2222.jpg); background-size:100% 100% ; background-attachment: fixed">
 <div class="signup-box">
     <fieldset>
         <legend><h2>管理员密码修改</h2></legend>

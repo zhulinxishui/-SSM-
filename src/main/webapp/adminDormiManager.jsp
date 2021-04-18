@@ -25,7 +25,7 @@
     <link href="plugin/easyui/themes/bootstrap/easyui.css" rel="stylesheet">
     <link href="css/bootstrap-switch.min.css" rel="stylesheet">
 </head>
-<body>
+<body style="background-image: url(/image/2222.jpg); background-size:100% 100% ; background-attachment: fixed">
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -115,7 +115,7 @@
                         <button id="subDormAddBtn" class="btn btn-success">添加</button>
                         <button id="subDormUpdateBtn" class="btn btn-warning">更新</button>
                         <button id="subDormDelBtn" class="btn btn-danger">删除</button>
-                        <button type="reset" class="btn btn-default">重置</button>
+                        <button type="reset" class="btn btn-default"  id="reset222" >重置</button>
                     </div>
                 </div>
             </div>
@@ -134,7 +134,7 @@
                 <div class="form-group">
                     <div class="col-md-offset-3">
                         <button id="subAddZoneBtn" class="btn btn-success">添加</button>
-                        <button type="reset" class="btn btn-default">重置</button>
+                        <button type="reset" class="btn btn-default" id="reset333">重置</button>
                     </div>
                 </div>
             </div>
@@ -154,7 +154,7 @@
                 <div class="form-group">
                     <div class="col-md-offset-3">
                         <button id="subDelZoneBtn" class="btn btn-danger">删除</button>
-                        <button type="reset" class="btn btn-default">重置</button>
+                        <button type="reset" class="btn btn-default" id="reset444">重置</button>
                     </div>
                 </div>
             </div>

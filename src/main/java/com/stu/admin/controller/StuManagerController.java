@@ -4,6 +4,7 @@ import com.stu.admin.service.StuManagerService;
 import com.stu.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -171,6 +172,7 @@ public class StuManagerController {
 	 */
 	@RequestMapping(value = "/updateStudent.do",method = {RequestMethod.POST, RequestMethod.GET})
 	public void updateStudent(String id, String name, String idcard, String sex, String phone, String qq, String email, String address, HttpServletRequest request, HttpServletResponse response) throws IOException {
+		System.out.println("开始修改了------------");
 		Map<String,Object> data = new HashMap<String,Object>();
 		data = stuManagerService.updateStudent(name,idcard,sex,phone,qq,email,address,id);
 		ResponseUtil.returnJson(data, response);
@@ -365,4 +367,27 @@ public class StuManagerController {
 		}
 		ResponseUtil.returnJson(result, response);
 	}
+
+
+
+	@RequestMapping(value = "/importExcel.do")
+		public void importExcel(String fileName,HttpServletResponse response) throws IOException {
+        Map<String,Object> result = new HashMap<String,Object>();
+		if (fileName == null && "".equals(fileName)) {
+		} else {
+			if (fileName.endsWith("xls") || fileName.endsWith("xlsx")) {
+				Boolean isOk=stuManagerService.importExcel(fileName);
+				if (isOk) {
+                    result.put("code",true);
+				} else {
+                    result.put("code",false);
+                    result.put("msg","导入失败");
+				}
+			}
+		}
+		System.out.println(result);
+		ResponseUtil.returnJson(result,response);
+
+	}
+
 }

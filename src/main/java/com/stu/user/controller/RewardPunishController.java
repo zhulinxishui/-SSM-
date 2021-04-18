@@ -39,4 +39,26 @@ public class RewardPunishController {
         result = rewardPunishService.getStuPunish(stuId,page,rows);
         ResponseUtil.returnJson(result,response);
     }
+
+
+
+    @RequestMapping("/getQuality.do")
+    public void getQuality(int stuId, int page, int rows, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        Map<String,Object> result = new HashMap<String,Object>();
+        result = rewardPunishService.getStuRewardCount(stuId,page,rows);
+        ResponseUtil.returnJson(result,response);
+    }
+
+
+
+
+
+
+
 }
+
+
+
+
+
+

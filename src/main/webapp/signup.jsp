@@ -12,7 +12,7 @@
     <link href="plugin/easyui/themes/bootstrap/easyui.css" rel="stylesheet">
     <link href="css/mycss.css" rel="stylesheet">
 </head>
-<body>
+<body style="background-image: url(/image/1111.jpeg); background-size:100% 100% ; background-attachment: fixed">
 <div class="signup-box">
     <fieldset>
         <legend><h2>学生用户注册</h2></legend>
@@ -56,7 +56,8 @@
                 <div class="form-group" style="margin-top: 30px;">
                     <div class="col-md-offset-5">
                         <button class="btn btn-primary" id="signup1">注册</button>
-                        <button class="btn btn-default" id="reset">重置</button>
+                        <button class="btn btn-default" id="reset2">重置</button>
+                        <button class="btn btn-default" id="retu11">返回</button>
                     </div>
                 </div>
             </div>

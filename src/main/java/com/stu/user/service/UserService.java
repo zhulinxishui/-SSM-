@@ -59,7 +59,10 @@ public class UserService {
         else{
             //学生登陆
             //从学生表中查找该用户名的学生
-            Map<String,Object> stu = userDao.stuLogin(username);
+
+            int stuId1= Integer.parseInt(username);
+             Map<String,Object> stu = userDao.selectId(stuId1);
+ //           Map<String,Object> stu = userDao.stuLogin(username);
             if(stu!=null && stu.get("reset").equals("0")){
                 //有该用户，并且还没有重新设置过密码
                 if(password.equals("123456")){
@@ -75,9 +78,10 @@ public class UserService {
                     result.put("msg","用户名或密码错误！");
                     return result;
                 }
-            }else if(stu!=null && stu.get("reset").equals("1")){
+            }else if(stu!=null && stu.get("reset")!=("0")){
                 //学生已经重置密码
-                int j = userDao.studentLogin(username,password);
+//                int j = userDao.studentLogin((String) stu.get("name"),password);
+                int j = userDao.studentLogin2(stuId1,password);
                 if(j>0){
                     //登陆成功
                     result.put("code",true);
@@ -151,7 +155,7 @@ public class UserService {
         Map<String,Object> result = new HashMap<>();
         String a = stuId+"";
         if(username!=null && password!=null && a.length()==2){
-            userDao.stuSignUp(stuId);
+            userDao.stuSignUp(stuId,username, "1");
             userDao.UserSignUp( username, password, stuId);
             result.put("code", true);
             result.put("msg","注册成功");
@@ -171,5 +175,18 @@ public class UserService {
         userDao.stuSignUp(id);
     }
 */
+
+   public boolean upReset(String password,String reset, String username){
+
+       userDao.upReset("123456","0",username);
+       Map<String,Object> stu = userDao.stuLogin(username);
+       System.out.println(stu.get("reset"));
+       if(stu.get("reset").equals("0")){
+           return true;
+       }else{
+           return false;
+       }
+
+   }
 
 }

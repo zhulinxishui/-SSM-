@@ -67,4 +67,6 @@ public interface StuManagerDao {
 	void addQuality(int id, String name, float score, String time);
 
 	int checkStuDuplicate(String stuName, String stuIdCard);
+
+	int add(String stuName,String stuIdCard);
 }

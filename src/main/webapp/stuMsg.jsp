@@ -36,7 +36,7 @@
     <link href="plugin/easyui/themes/bootstrap/easyui.css" rel="stylesheet">
     <link href="plugin/easyui/themes/icon.css" rel="stylesheet">
 </head>
-<body>
+<body style="background-image: url(/image/2222.jpg); background-size:100% 100% ; background-attachment: fixed">
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -68,6 +68,7 @@
             <li role="presentation"><a href="stuGrade.jsp">成绩信息</a></li>
             <li role="presentation"><a href="stuReward.jsp">奖励信息</a></li>
             <li role="presentation"><a href="stuPunish.jsp">处罚信息</a></li>
+            <li role="presentation"><a href="quality.jsp">素拓信息</a></li>
             <li role="presentation"><a href="stuAFL.jsp">学生请假</a></li>
         </ul>
     </div>
@@ -82,7 +83,7 @@
             <div class="form-group">
                 <label for="name" class="col-md-2 control-label">姓名:</label>
                 <div class="col-md-8">
-                    <input type="text" class="form-control" disabled id="name" name="Name" value="<%=request.getSession().getAttribute("userName")%>">
+                    <input type="text" class="form-control"  id="name" name="Name" value="<%=request.getSession().getAttribute("userName")%>">
                 </div>
             </div>
             <div class="form-group">
@@ -135,14 +136,14 @@
         </div>
         <div class="col-md-4" id="resetPassword">
             <div class="form-horizontal">
-                <div class="form-group">
+<%--                <div class="form-group">
                     <label for="username" class="col-md-4 control-label">
                        登录名：
                     </label>
                     <div class="col-md-8">
                         <input type="text" id="username" class="form-control">
                     </div>
-                </div>
+                </div>--%>
                 <div class="form-group">
                     <label for="password" class="col-md-4 control-label">
                        新密码：

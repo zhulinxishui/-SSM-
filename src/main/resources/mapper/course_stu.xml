@@ -7,12 +7,12 @@
         select count(*) from course
     </select>
 	
-    <select id="getAllCourse" parameterType="string" resultType="map">
+    <select id="getAllCourse" resultType="map">
         SELECT course.`id`,course.`name`,course.`score`,courseType.`name` courseType FROM course
         LEFT JOIN coursetype ON coursetype.id=course.`courseType`
-        WHERE course.`name` LIKE CONCAT('%',#{param1},'%')
+        WHERE course.`name` LIKE CONCAT('%',#{keywords},'%')
         ORDER BY course.`id` DESC
-        LIMIT #{param2},#{param3}
+        LIMIT #{begin},#{rows}
     </select>
 	
     <select id="getStuCourse" parameterType="integer" resultType="integer">
@@ -23,7 +23,7 @@
         select state from switch where name='courseSwitch'
     </select>
 	
-    <insert id="getCourse" parameterType="integer">
+    <insert id="getCourse" >
         INSERT into stu_course(student_id, course_id) VALUES (#{param1},#{param2})
     </insert>
 	

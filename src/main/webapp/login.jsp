@@ -13,7 +13,7 @@
     <link href="plugin/easyui/themes/bootstrap/easyui.css" rel="stylesheet">
     <link href="css/mycss.css" rel="stylesheet">
 </head>
-<body>
+<body style="background-image: url(/image/1111.jpeg); background-size:100% 100% ; background-attachment: fixed" >
 
     <div class="login-box">
         <fieldset>
@@ -47,7 +47,7 @@
                         <div class="col-md-offset-5">
                             <button class="btn btn-primary" id="login">登陆</button>
                             <button class="btn btn-default" id="reset">重置</button>
-                            <button class="btn btn-warning" id="signup">注册</button>
+<%--                            <button class="btn btn-warning" id="signup">注册</button>--%>
                         </div>
                     </div>
                 </div>

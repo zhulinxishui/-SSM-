@@ -30,5 +30,12 @@ public interface UserDao {
 
     void updateAdminPassword(String adminId, String newPassword);
 
-    int stuSignUp(int id);
+    int stuSignUp(int id,String username,String reset);
+
+    boolean upReset(String password,String reset, String username);
+
+    Map<String,Object> selectId(int stuId);
+
+    /*验证学生登录*/
+    int studentLogin2(int stuId, String password);
 }

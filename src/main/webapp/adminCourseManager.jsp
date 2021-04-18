@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link href="plugin/easyui/themes/bootstrap/easyui.css" rel="stylesheet">
 	<link href="css/bootstrap-switch.min.css" rel="stylesheet">
   </head>
-  <body>
+  <body style="background-image: url(/image/2222.jpg); background-size:100% 100% ; background-attachment: fixed">
     <nav class="navbar navbar-default">
   		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->

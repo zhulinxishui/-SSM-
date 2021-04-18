@@ -47,7 +47,6 @@ var initClick = function() {
             });
             return
         }
-
         if (password == '') {
             $.messager.alert({
                 title: "提示",
@@ -181,6 +180,58 @@ var initClick = function() {
             }
         });
 
+    });
+
+    $("#reset2").click(function () {
+        window.location.reload();
+    });
+
+
+
+    //
+    $("#reset").click(function () {
+        window.location.reload();
+        //
+        // /*验证用户名和密码是否为空，根据用户名密码查到学号*/
+        //
+        // var username = $("#username").val();
+        // var password = $("#password").val();
+        // $.ajax({
+        //     url: "/stu/user/upReset.do",
+        //     type: "POST",
+        //     data: {
+        //         password: password,
+        //         username: username
+        //
+        //     },
+        //     success: function (a) {
+        //         if (a==true){
+        //             $.messager.alert({
+        //                 title: "提示",
+        //                 icon: "success",
+        //                 msg: "重置成功！"
+        //             });
+        //             return;
+        //         }else{
+        //             $.messager.alert({
+        //                 title: "提示",
+        //                 icon: "false",
+        //                 msg: "重置失败！"
+        //             });
+        //             return;
+        //         }
+        //
+        //     }
+        // });
+
+        });
+
+
+
+    $("#retu11").click(function () {
+
+        window.location.href = "/login.jsp";
+        ;
 
     });
 }

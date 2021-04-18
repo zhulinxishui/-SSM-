@@ -22,4 +22,9 @@ public interface RewardPunishDao {
     List<Map<String,Object>> getStuPunish(int stuId, int begin, int rows);
 
     int getStuPunishCount(int stuId);
+
+    int getStuQualityCount(int stuId);
+
+    List<Map<String,Object>> getStuQuality(int stuId, int begin, int rows);
+
 }

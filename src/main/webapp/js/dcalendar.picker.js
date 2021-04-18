@@ -2,7 +2,7 @@
  * jQuery DCalendar 1.1 and DCalendar Picker 1.3 plugin
  * 
  * Author: Dionlee Uy
- * Email: dionleeuy@gmail.com
+ * Email: dionleeuy@gmail.comsubUpdateBtn
  *
  * Date: Sat Mar 2 2013
  *

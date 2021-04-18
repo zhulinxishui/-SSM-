@@ -39,8 +39,23 @@
        insert into user (username, password, stuId) values (#{username},#{password},#{stuId})
     </insert>
 
-    <insert id="stuSignUp" parameterType="Integer">
-       insert into student (id) values (#{id})
+    <insert id="stuSignUp" >
+       insert into student (id,name,reset) values (#{param1},#{param2},#{param3})
     </insert>
+
+    <update id="upReset" >
+        update user,student
+        set password=#{param1},reset=#{param2}
+        where username=#{param3}
+    </update>
+
+    <select id="selectId" resultType="map" >
+        select * from student where id=#{stuId}
+    </select>
+
+
+    <select id="studentLogin2"  resultType="int">
+        SELECT count(*) from user where stuId=#{stuId} and password=#{password}
+    </select>
 
 </mapper>

@@ -23,4 +23,15 @@
         where student_id=#{param1} LIMIT #{param2},#{param3}
     </select>
 
+
+    <select id="getStuQualityCount" parameterType="int" resultType="int">
+        SELECT COUNT(*) FROM quality WHERE student_id = #{param1}
+    </select>
+
+    <select id="getStuQuality" parameterType="int" resultType="map">
+        select quality.name,quality.score,quality.time
+        from quality
+        where student_id=#{param1} LIMIT #{param2},#{param3}
+    </select>
+
 </mapper>

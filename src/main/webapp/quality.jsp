@@ -53,10 +53,10 @@
             <li role="presentation"><a href="stuMsg.jsp">个人资料</a></li>
             <li role="presentation"><a href="stuDormitory.jsp">住宿信息</a></li>
             <li role="presentation"><a href="stuChooseClasses.jsp">选课系统</a></li>
-            <li role="presentation"><a href="stuGrade.jsp">成绩信息</a></li>
-            <li role="presentation" class="active"><a href="stuReward.jsp">奖励信息</a></li>
+            <li role="presentation" ><a href="stuGrade.jsp">成绩信息</a></li>
+            <li role="presentation"><a href="stuReward.jsp">奖励信息</a></li>
             <li role="presentation"><a href="stuPunish.jsp">处罚信息</a></li>
-            <li role="presentation"><a href="quality.jsp">素拓信息</a></li>
+            <li role="presentation" class="active"><a href="quality.jsp">素拓信息</a></li>
             <li role="presentation"><a href="stuAFL.jsp">学生请假</a></li>
         </ul>
     </div>
@@ -64,10 +64,10 @@
         <div>
             <ol class="breadcrumb">
                 <li><a href="javascript:void(0)">首页</a></li>
-                <li class="active">奖励信息</li>
+                <li class="active">素拓信息</li>
             </ol>
         </div>
-        <div id="studentRewardGrid">
+        <div id="studentGradeBox">
         </div>
     </div>
 </div>
@@ -78,6 +78,6 @@
 <script src="js/bootstrap.js"></script>
 <script src="plugin/easyui/jquery.easyui.min.js"></script>
 <script src="plugin/easyui/locale/easyui-lang-zh_CN.js"></script>
-<script src="js/stuReward.js"></script>
+<script src="js/quality.js"></script>
 </body>
 </html>

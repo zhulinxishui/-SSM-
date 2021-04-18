@@ -1,6 +1,7 @@
 package com.stu.admin.service;
 
 import com.stu.admin.dao.StuManagerDao;
+import com.stu.util.ExcelUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -397,4 +398,23 @@ public class StuManagerService {
 		int result=stuManagerDao.checkStuDuplicate(stuName,stuIdCard);
 		return result;
 	}
-}
+
+
+/*导入姓名和身份证号Excel*/
+	public  Boolean importExcel(String fileName)
+	{
+			try {
+				List<Object[]> list = ExcelUtil.importExcel(fileName);
+				for (int i = 0; i < list.size(); i++) {
+					//第一列不使用是因为是序号，从第二列开始姓名，身份证号
+					stuManagerDao.add(list.get(i)[1].toString(),list.get(i)[2].toString());
+				}
+				return true;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return false;
+		}
+
+
+	}

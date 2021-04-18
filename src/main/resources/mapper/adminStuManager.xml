@@ -27,7 +27,7 @@
 	<insert id="addStudent" parameterType="string">
 		INSERT into student(name,idcard,sex) values(#{param1},#{param2},#{param3})
 	</insert>
-    <delete id="delStudent" parameterType="int">
+    <delete id="delStudent" parameterType="string">
         DELETE FROM student WHERE id=#{param1}
     </delete>
     <delete id="delMoreStudent" parameterType="list">
@@ -36,14 +36,14 @@
             #{id}
         </foreach>
     </delete>
-    <select id="getStudent" parameterType="int" resultType="map">
+    <select id="getStudent" resultType="map">
         select * from student where id=#{param1}
     </select>
-    <update id="updateStudent" parameterType="string">
+    <update id="updateStudent" >
         update student set name=#{param1},idcard=#{param2},sex=#{param3},phone=#{param4},qq=#{param5},email=#{param6},address=#{param7}
         where id=#{param8}
     </update>
-    <delete id="delStudentInCourse" parameterType="int">
+    <delete id="delStudentInCourse" parameterType="string">
         DELETE from stu_course where student_id=#{param1}
     </delete>
     <select id="getSwitch" parameterType="String" resultType="int">
@@ -61,7 +61,7 @@
     <select id="getStudentPunish" parameterType="int" resultType="map">
         select * from punish where student_id=#{param1}
     </select>
-    <insert id="addreward" parameterType="string" >
+    <insert id="addreward"  >
         INSERT into reward(student_id,content,time) VALUES(#{param1},#{param2},#{param3})
     </insert>
     <select id="getRewardCombobox" parameterType="int" resultType="map">
@@ -70,22 +70,22 @@
     <delete id="delReword" parameterType="int">
         DELETE from reward where id=#{param1}
     </delete>
-    <insert id="addPunish" parameterType="string">
+    <insert id="addPunish" >
         insert into punish (student_id,content,time) values (#{param1},#{param2},#{param3});
     </insert>
-    <select id="getPunishCombobox" parameterType="string" resultType="map">
+    <select id="getPunishCombobox" parameterType="int" resultType="map">
         select id,content from punish where student_id=#{param1}
     </select>
-    <delete id="delPunish" parameterType="string">
+    <delete id="delPunish" parameterType="int">
         DELETE from punish where id=#{param1}
     </delete>
-    <select id="getStuAllQualityWithKey" parameterType="string" resultType="int">
-        select count(*) from quality where student_id=#{param1} and name like concat('%',#{param2},'%')
+    <select id="getStuAllQualityWithKey" resultType="int">
+        select count(*) from quality where student_id=#{id} and name like concat('%',#{keywords},'%')
     </select>
     <select id="getStuAllQuality" parameterType="int" resultType="int">
         select count(*) from quality where student_id=#{param1}
     </select>
-    <select id="getQualityData" parameterType="int" resultType="map">
+    <select id="getQualityData"  resultType="map">
         select quality.id as id,quality.name as qualityName,quality.score as score,quality.time as qualityTime
         from quality
         where student_id=#{param1}
@@ -98,7 +98,7 @@
     <delete id="delQuality" parameterType="int">
         DELETE from quality where id=#{param1}
     </delete>
-    <insert id="addQuality" parameterType="string">
+    <insert id="addQuality" >
         INSERT into quality(student_id,name,score,time) VALUES(#{param1},#{param2},#{param3},#{param4})
     </insert>
     <select id="checkStuDuplicate" parameterType="String" resultType="int">
@@ -106,4 +106,8 @@
         FROM student
         WHERE student.name=#{param1} and student.idcard=#{param2}
     </select>
+<!--导入excel-->
+    <insert id="add" >
+        INSERT into student(name,idcard) VALUES(#{param1},#{param2})
+    </insert>
 </mapper>

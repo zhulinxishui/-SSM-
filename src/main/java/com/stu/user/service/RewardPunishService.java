@@ -10,13 +10,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by chenkexuan on 2017/4/27.
- */
-
-/**
- * edited and modified by dengxionghui on 2018/6/21
- */
 @Service
 @Transactional
 public class RewardPunishService {
@@ -46,5 +39,21 @@ public class RewardPunishService {
         result.put("rows",data);
         return result;
     }
+
+
+    public Map<String,Object>getStuRewardCount(int stuId,int page, int rows)
+    {
+        Map<String,Object> result = new HashMap<String,Object>();
+        List<Map<String,Object>> data = new ArrayList<>();
+        int begin = (page-1)*rows;
+        int count = rewardPunishDao.getStuQualityCount(stuId);
+        data=rewardPunishDao.getStuQuality(stuId,begin,rows);
+        result.put("total",count);
+        result.put("rows",data);
+        return result;
+    }
+
+
+
 
 }

@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link href="plugin/easyui/themes/bootstrap/easyui.css" rel="stylesheet">
     <link href="css/bootstrap-switch.min.css" rel="stylesheet">
   </head>
-  <body>
+  <body style="background-image: url(/image/2222.jpg); background-size:100% 100% ; background-attachment: fixed">
     <nav class="navbar navbar-default">
   		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -83,6 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				   <button class="btn btn-default btn-sm" id="del-btn">多选删除</button>
 				   <button class="btn btn-default btn-sm" id="showAll-btn">查询所有</button>
 				   <button class="btn btn-default btn-sm" id="add-btn">添加学生</button>
+                   <a href="/input.jsp"> <button class="btn btn-default btn-sm" id="add-excel">导入excel</button></a>
                    <div class="switch" style="display: inline-block">
                        <input type="checkbox" name="my-checkbox" id="studentSwitch">
                    </div>

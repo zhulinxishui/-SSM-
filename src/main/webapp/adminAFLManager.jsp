@@ -25,7 +25,7 @@
     <link href="plugin/easyui/themes/bootstrap/easyui.css" rel="stylesheet">
     <link href="css/bootstrap-switch.min.css" rel="stylesheet">
 </head>
-<body>
+<body style="background-image: url(/image/2222.jpg); background-size:100% 100% ; background-attachment: fixed">
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -107,7 +107,7 @@
         </div>
     </div>
 </div>
-
+</div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery-2.1.1.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -116,5 +116,6 @@
 <script src="plugin/easyui/jquery.easyui.min.js"></script>
 <script src="plugin/easyui/locale/easyui-lang-zh_CN.js"></script>
 <script src="js/adminAFLManager.js"></script>
+
 </body>
 </html>

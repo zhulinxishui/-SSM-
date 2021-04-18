@@ -35,14 +35,14 @@ var initDataGrid = function(){
                     }
                     return str; },
             },
-            {field:'approve_time',title:'批准时间',width:'150',align : 'center',
+/*            {field:'approve_time',title:'批准时间',width:'150',align : 'center',
                 formatter:function(value, row, index){
                     if(row.approve_time==undefined)
                     {
                         str='时间未知'
                     }
                     return str; },
-            },
+            },*/
             {field:'opt',title:'操作',width:'100',align:'center',
                 formatter:function(value, row, index){
                     var str = '<a href="javascript:void(0)" onclick="approveStuAFL(\''+row.id+'\',\''+row.student_id+'\',\''+row.approve+'\')" name="approveAFL" class="easyui-linkbutton" ></a>';

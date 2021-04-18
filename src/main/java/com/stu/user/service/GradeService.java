@@ -62,7 +62,7 @@ public class GradeService {
         int countScore = 0;//总学分
         for(int i=0;i<data.size();i++){
             if(data.get(i).get("score")!=null) {
-                int courseScore = Integer.parseInt((String) data.get(i).get("courseScore"));
+                int courseScore = Integer.parseInt(data.get(i).get("courseScore").toString());
                 int grade = (Integer) data.get(i).get("score");
                 double score = getCourseScore(grade);
                 sum += courseScore * score;
@@ -70,7 +70,8 @@ public class GradeService {
             }
         }
         double s = (double)sum/(double)countScore;
-        result.put("score",s);
+        float aa = new Double(s).floatValue();
+        result.put("score",aa);
         result.put("code",true);
         return result;
     }
@@ -95,7 +96,10 @@ public class GradeService {
             base=3;
         }else if(shi==9){
             base=4;
+        }else if(shi==10){
+            base=5;
         }
+
         double stuScore = base+ge*0.1;
         return stuScore;
     }

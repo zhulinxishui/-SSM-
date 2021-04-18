@@ -63,13 +63,13 @@
         select student_id from stu_course where course_id=#{param1}
     </select>
 
-    <select id="getStuGradeCount" parameterType="int" resultType="int">
+    <select id="getStuGradeCount" resultType="int">
         SELECT COUNT(stu_course.id) FROM stu_course
         LEFT JOIN course ON stu_course.`course_id`=course.`id`
-        WHERE course.`name` LIKE CONCAT('%',#{param1},'%') AND stu_course.`course_id`=#{param2}
+        WHERE course.`name` LIKE CONCAT('%',#{keywords},'%') AND stu_course.`course_id`=#{courseId}
     </select>
 
-    <select id="getStuGradeGrid" parameterType="string" resultType="java.util.Map">
+    <select id="getStuGradeGrid"  resultType="java.util.Map">
         SELECT tparam2.id ,t2.id stuId,t2.`name`,tparam2.`score` FROM stu_course tparam2
         LEFT JOIN student t2 ON t2.`id`=tparam2.`student_id`
         LEFT JOIN course t3 ON tparam2.`course_id`=t3.`id`
@@ -77,7 +77,7 @@
         OR t2.`name` LIKE CONCAT('%',#{param1},'%') AND tparam2.course_id=#{param2} limit #{param3},#{param4}
     </select>
 
-    <update id="addStuGrade" parameterType="string">
+    <update id="addStuGrade" >
         UPDATE stu_course SET score=#{param3} where student_id=#{param1} and course_id=#{param2}
     </update>
 </mapper>

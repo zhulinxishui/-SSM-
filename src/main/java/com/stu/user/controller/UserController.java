@@ -91,4 +91,12 @@ public class UserController {
     public void stuSignUp(int stuId) throws IOException {
         userService.stuSignUp(stuId);
     }*/
+
+
+    @RequestMapping("/upReset.do")
+    public void upReset(HttpServletResponse response, String password,String reset,String username) throws IOException {
+
+        boolean a =userService.upReset(password,reset,username);
+        ResponseUtil.returnJson(a,response);
+    }
 }

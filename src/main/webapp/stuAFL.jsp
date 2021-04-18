@@ -25,7 +25,7 @@
     <link href="plugin/easyui/themes/icon.css" rel="stylesheet">
     <link href="css/dcalendar.picker.css" rel="stylesheet">
 </head>
-<body>
+<body style="background-image: url(/image/2222.jpg); background-size:100% 100% ; background-attachment: fixed">
 
 <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -59,6 +59,7 @@
             <li role="presentation"><a href="stuGrade.jsp">成绩信息</a></li>
             <li role="presentation"><a href="stuReward.jsp">奖励信息</a></li>
             <li role="presentation"><a href="stuPunish.jsp">处罚信息</a></li>
+            <li role="presentation"><a href="quality.jsp">素拓信息</a></li>
             <li role="presentation" class="active"><a href="stuAFL.jsp">学生请假</a></li>
         </ul>
     </div>
